@@ -63,6 +63,10 @@ class TodoList
         @todo_store.transaction do
             # @tasks = @todo_store["Josh"]
             @tasks = @todo_store[@user]
+
+            if @tasks.nil?
+                @tasks = []
+            end
         end
     end
 end
