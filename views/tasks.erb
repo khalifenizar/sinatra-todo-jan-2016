@@ -1,7 +1,9 @@
+<link rel="stylesheet" href="/styles.css">
+
 <h1> My Task List </h1>
 <ul>
   <% @tasks.each do | task | %>
-    <li>
+    <li class=" <%= if task.completed? then "completed" end %> ">
       <%= task.content %>
 
       <% if !task.completed? %>
