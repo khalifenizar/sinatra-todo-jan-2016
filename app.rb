@@ -16,22 +16,22 @@ todo_list.add_task(task1)
 todo_list.add_task(task2)
 todo_list.add_task(task3)
 
-get '/' do 
-	erb(:home)
+get '/' do
+  erb(:home)
 end
 
 get '/tasks' do
-	@tasks = todo_list.tasks
-	erb(:tasks)
+  @tasks = todo_list.tasks
+  erb(:tasks)
 end
 
-get '/new_task' do 
-	erb(:new_task)
+get '/new_task' do
+  erb(:new_task)
 end
 
 post '/create_task' do
-	content = params[:task_content]
-	task = Task.new(content)
-	todo_list.add_task(task)
-	redirect to '/tasks'
+  content = params[:task_content]
+  task = Task.new(content)
+  todo_list.add_task(task)
+  redirect to '/tasks'
 end
