@@ -3,6 +3,16 @@
   <% @tasks.each do | task | %>
     <li>
       <%= task.content %>
+
+      <% if !task.completed? %>
+        <!-- /complete/7 -->
+        <!-- /complete/42 -->
+        <form action="/complete/<%= task.id %>" method="post">
+          <button type="submit">
+            Complete
+          </button>
+        </form>
+      <% end %>
     </li>
   <% end %>
 </ul>

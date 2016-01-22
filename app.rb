@@ -29,3 +29,14 @@ post '/create_task' do
 
   redirect to '/tasks'
 end
+
+post "/complete/:id" do
+  task_id = params[:id].to_i
+  # task_id = 1
+
+  task = todo_list.find_task_by_id(task_id)
+  task.complete!
+  todo_list.save("tasks.yml")
+
+  redirect to("/tasks")
+end
